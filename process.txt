@@ -1,0 +1,40 @@
+Intial : 
+1.python -m venv env
+2.source env/Scripts/activate
+3.deactivate 
+4.pip install django
+5.pip freeze
+6.django-admin startproject ecommerence .
+7.python manage.py runserver
+
+Configration :
+1. templates in setting in dir and create outside template folder
+2. create static in project folder
+3. setting -> static --> 
+	STATIC_URL = '/static/'
+        STATIC_ROOT = BASE_DIR / 'static'
+        STATICFILES_DIRS = [
+          'ecommerence/static',
+        ]
+4.python manage.py collectstatic
+
+Running:
+(before this create category model,admin,app)
+1.pip install Pillow
+2.python manage.py makemigrations
+3.python manage.py migrate
+4.winpty python manage.py createsuperuser
+
+dashboard account:
+1. create abstractbaseuser and baseusermanager
+2. in setting -> AUTH_USER_MODEL = 'accounts.Account'
+
+media file :
+1.MEDIA_URL = '/media/'
+2.MEDIA_ROOT = BASE_DIR / 'media'
+3.in urls --> + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+	- from django.conf.urls.static import static
+        - from django.conf import settings
+
+link of category:
+1. in setting -> templates--> options-->'category.context_processors.menu_links',
