@@ -1,0 +1,45 @@
+{% if messages %}
+{% for message in messages %}
+<div id="message" class="container">
+    <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible  show" role="alert" {% endif %}>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{ message }}</strong>
+
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<div class="container">
+    <div class="alert alert-danger alert-dismissible  show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{error}}</strong>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% if form.email.errors %}
+<div class="container">
+    <div class="alert alert-danger alert-dismissible  show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{form.email.errors}}</strong>
+    </div>
+</div>
+{% endif %}
+{% if form.phone_number.errors %}
+<div class="container">
+    <div class="alert alert-danger alert-dismissible  show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{form.phone_number.errors}}</strong>
+    </div>
+</div>
+{% endif %}
