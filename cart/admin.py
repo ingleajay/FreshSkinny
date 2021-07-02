@@ -2,7 +2,7 @@ from django.contrib import admin
 from cart.models import Cart,CartItem
 # Register your models here.
 class CartItemAdmin(admin.ModelAdmin):
-    list_display=('product','cart','quantity','is_active')
+    list_display=('user','product','cart','quantity','is_active',)
     list_editable = ('is_active',)
     list_filter = ('product', 'cart', 'quantity', 'is_active')
 
